@@ -16,7 +16,7 @@ public class Main {
         
         //task 2
         Controller1 c3 = new Controller1(model); // Create third controller
-        Controller2 c4 = new Controller2(model); // Create forth controller
+        Controller2 c4 = new Controller2(model); // Create forth controller2
         
     } // main
   
