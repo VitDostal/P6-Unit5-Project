@@ -17,17 +17,19 @@ public class Controller2 extends JFrame
     private View3 view3;
     private View4 view4;
     private JButton clearViews;   // For direct message to views
-    private JButton refreshViews; // To prompt them to refresh their contents from the model
+    private JButton incB;        // To prompt the model to "modify" itself (A component)
+    
+    //private JButton refreshViews; // To prompt them to refresh their contents from the model
  
     // Constructor
-    public Controller2(Model model, String title, int cX, int cY) {
+    public Controller2(Model model, String title, int locX, int locY) {
     
         // Record reference to the model
         this.model = model;
         
         // Configure the window
         setTitle(title);
-        setLocation(cX,cY);
+        setLocation(locX,locY);
         setSize(350,150);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         Container window = getContentPane();
@@ -37,14 +39,17 @@ public class Controller2 extends JFrame
         clearViews = new JButton("Clear views");
         window.add(clearViews);
         clearViews.addActionListener(this);
-        refreshViews = new JButton("Refresh views");
-        window.add(refreshViews);
-        refreshViews.addActionListener(this);
+        //refreshViews = new JButton("Refresh views");
+        //window.add(refreshViews);
+        //refreshViews.addActionListener(this);
         // Create views
         view3 = new View3(this, model);
         window.add(view3);
         view4 = new View4(this, model);
         window.add(view4);
+        incB = new JButton("Increment B");
+        window.add(incB);
+        incB.addActionListener(this);
         
         // Display the frame
         setVisible(true);
@@ -58,10 +63,15 @@ public class Controller2 extends JFrame
             view3.clear();
             view4.clear();
         }
+        else if (e.getSource() == incB) 
+            model.modifyB();     // The model will trigger the views to update themselves
+        
+        /*
         if (e.getSource() == refreshViews) {
             view3.update();
             view4.update();
         }
+        */
         
     } // actionPerformed
     
