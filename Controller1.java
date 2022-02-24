@@ -15,7 +15,7 @@ import javax.swing.*;
 
 public class Controller1 extends JFrame
                          implements ActionListener {
-  
+
     private Model model;
     private View1 view1;
     private View2 view2;
@@ -24,14 +24,14 @@ public class Controller1 extends JFrame
     private JButton quit;        // As it says
     
     // Constructor
-    public Controller1(Model model) {
+    public Controller1(Model model, String title, int cX, int cY ) {
         
         // Record reference to the model
         this.model = model;
         
         // Configure the window
-        setTitle("Controller1");
-        setLocation(40,40);
+        setTitle(title);
+        setLocation(cX,cY);
         setSize(350,150);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         Container window = getContentPane();
